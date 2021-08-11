@@ -1,4 +1,4 @@
-#include <fstream>
+#include <iostream>
 #include <string>
 #include <vector>
 using namespace std;
@@ -12,31 +12,19 @@ long long fi (int n){
     return cache[n]; 
 }
 int main() {
-    ifstream fin("INPUT.txt");
-    ofstream fout;
-    fout.open("OUTPUT.txt");
+
     string s;
-    fin >> s; 
+    cin >> s; 
     int a = 0,b = 1;
     fi(24);
-    int k = s.size();
-    int l = 1;
-    int r = 24;
-    while(r-l>1){
-        int m = l + (r - l) / 2;
-        if (cache[m] >= s.size()){
-            r = m;
-        }else 
-            l = m;
+    int j = 2;
+    for (int i = 1; i < s.size() + 1;i++){
+        if(i == cache[j]){
+            cout << s[i - 1];
+            j++;
+        }
     }
-    if (!(l < s.size()))
-        l++;
-    for (int i = 2; i <= l; i++){
-        int x = cache[i];
-        fout << s[cache[i]-1];
-    }
+    
 
-    fin.close();
-    fout.close();
     return 0;
 }
