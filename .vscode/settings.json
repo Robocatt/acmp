@@ -1,6 +1,16 @@
 {
     "files.associations": {
         "vector": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "utility": "cpp",
+        "iostream": "cpp",
+        "map": "cpp",
+        "xtree": "cpp",
+        "initializer_list": "cpp",
+        "xstring": "cpp",
+        "xutility": "cpp",
+        "iosfwd": "cpp",
+        "string": "cpp",
+        "cmath": "cpp"
     }
 }

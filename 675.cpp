@@ -10,7 +10,7 @@ int main() {
     bool f = true;
     char c;
     fin >> n >> m;
-    vector <vector <char>> arr(n,vector <char> (m));
+    vector <vector <char> > arr(n,vector <char> (m));
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++){
         fin >> c;
