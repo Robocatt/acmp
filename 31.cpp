@@ -1,48 +1,41 @@
-#include <iostream>
-#include <algorithm>
-#include <string>
-#include <vector>
-#include<iomanip>
-typedef long long ll;
+#include<iostream>
+#include<vector>
+#include<algorithm>
 using namespace std;
 
-int ans = 0;
 
-void f(vector<int> &vec, int n, int left, vector<bool> &used){
-	if (left < 0){
-    return;
-  }
-  if(left > n - vec.size()){
-    return;
-  }
-  if (vec.size() == n){
-		
 
-    ans++;
-    return;
-  }
-  
-  for(int i = 1; i <= n; i++){
-    if(!used[i]){
-      used[i] = true;
-      vec.push_back(i);
-      if(vec.size() == i){
-        f(vec, n, left - 1, used);
-      }else{
-        f(vec, n, left, used);
-      }
-      used[i] = false;
-      vec.pop_back();
+bool check(vector<int> & arr,int m){
+    int count = 0;
+    for(int i = 0; i < arr.size(); i++){
+        if(count + arr.size() - i < m){
+            break;
+        }
+        if(count > m){
+            break;
+        }
+        if(arr[i] == i + 1){
+            count ++;
+        }
     }
-  }
-  return;
+    return (count == m ? true : false);
 }
 
 
+
 int main(){
-	int n = 9;
-	vector<int> vec;
-	vector<bool> used(n + 1, false);
-  f(vec, n, 6, used);
-  cout << ans;
+    int n, m, c = 0;
+    cin >> n >> m;
+    vector<int> arr;
+    for(int i = 0; i < n  ; i++){
+        arr.push_back(i + 1);
+    }
+    do {
+        if(check(arr,m)){
+            c++;
+        }
+
+    }while(next_permutation(arr.begin(),arr.end()));
+    cout << c;
+    return 0;
 }
