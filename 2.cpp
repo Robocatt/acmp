@@ -1,18 +1,18 @@
-#include <fstream>
-#include <algorithm>
+#include <iostream> 
 using namespace std;
-
 int main() {
-    ifstream fin("INPUT.txt");
-    ofstream fout;
-    fout.open("OUTPUT.txt");
-    long long n;
-    fin >> n;
-    if (n < 0) {
-        fout << -n * (n-1) / 2 + 1;
-    }else 
-        fout << n * (n+1) / 2;
-    fin.close();
-    fout.close();
+    int i,n,count = 0;
+    cin >> n;
+    if (n>0){
+        for (i = 1;i <= n; i++) {
+            count += i;
+        }
+    }
+    else{
+        for (i = 1; i >= n; n++) {
+            count += n;
+        }
+    }
+    cout << count;
     return 0;
-}
+    }
