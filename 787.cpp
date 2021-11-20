@@ -1,33 +1,34 @@
-#include <fstream>
-#include <vector>
+#include<iostream>
+#include<iomanip>
+#include<vector>
+#include<set>
+#include<queue>
+#include<deque>
+#include<map>
+#include<algorithm>
+#include<cmath>
+#include<string>
 using namespace std;
 
-
-int main() {
-    ifstream fin("INPUT.txt");
-    ofstream fout;
-    fout.open("OUTPUT.txt");
+int main(){
     int n;
-    fin >> n;
-    vector<vector<int> > arr(n,vector <int> (n,0));
+    cin >> n;
+    vector<vector<int>> s(101,vector<int> (101,0));
     for (int i = 0; i < n; i++){
-        fin >> arr[i][i];
+        cin >> s[i][i];
     }
-    vector<vector<int>> dp(n, vector<int> (n, 0));
-    int i = n, j = 0;
-    for(int i = n; i < 0; i--){
-        for(int j = 0; j < n + 1; j++){
-            dp[i][j]=min(dp[i-1][j], dp[i][j-1]) + arr[i-1][j-1];
-        }
-        for(int j = 0; j < n + 1; j++){
-            max(dp[i-1][j], dp[i][j-1])
-        }
-    }
-    
-    
-    fout << dp[n][m];
-
-    fin.close();
-    fout.close();
+    if (n == 1) { 
+    cout << s[0][0]; 
     return 0;
+    }
+    for (int j = 0; j < n - 1; j++){
+        for (int i = 1; i < n - j + 1; i++){
+                if ((n - j) % 2 == 0) {
+                    s[i + j][i - 1] = max(s[i + j - 1][i - 1], s[i + j][i]);
+                }
+                else s[i + j][i - 1] = min(s[i + j - 1][i - 1], s[i + j][i]);
+        }
+    }
+    cout << s[n - 1][0];
+       return 0;
 }
