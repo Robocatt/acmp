@@ -64,6 +64,11 @@
         "unordered_map": "cpp",
         "unordered_set": "cpp",
         "xlocbuf": "cpp",
-        "xlocmes": "cpp"
+        "xlocmes": "cpp",
+        "stack": "cpp",
+        "*.tcc": "cpp",
+        "array": "cpp",
+        "bitset": "cpp",
+        "string_view": "cpp"
     }
 }
